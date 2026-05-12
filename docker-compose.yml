@@ -1,0 +1,17 @@
+services:
+    db:
+        container_name: postgres
+        image: postgres:latest
+        env_file:
+            - .env
+        environment:
+            PGUSER: ${POSTGRES_USER}
+            PGPASSWORD: ${POSTGRES_PASSWORD}
+            PGDATABASE: ${POSTGRES_DB}
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres_data:/home/tiaz/workspace/github.com/tiaszz/motorsport-career/data/
+
+volumes:
+    postgres_data:
