@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/tiaszz/motorsport-career/internal"
+)
 
 func main() {
-	fmt.Println("Hello world!")
+	db := internal.GetConnection()
+	defer db.Close()
+	internal.Test(db)
 }
